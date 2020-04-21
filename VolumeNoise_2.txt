@@ -1,0 +1,9 @@
+vector noi;
+vector freq= chv("Frequency");
+vector offset=chv("Offset");
+int turb = int(chi("turbulence"));
+float rough = chf("Roughness");
+float atten = chf("Attenuation");
+
+noi = @P + anoise(@P*freq+offset, turb,rough,atten);
+@density=volumesample(0,0, noi);
